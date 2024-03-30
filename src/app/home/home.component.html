@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-6">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div id="carousel" class="carousel-inner m-5">
+                    <div class="carousel-item active justify-content-center" data-bs-interval="300">
+                        <img src="https://i.postimg.cc/kXNKxysf/shop1.jpg  w-75" class="d-block" alt="no image"
+                            height="407px">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="300">
+                        <img src="https://i.postimg.cc/Y06Gzp6h/shop-2.jpg w-75" class="d-block " alt="..."
+                            height="407px">
+                    </div>
+                    <div class="carousel-item imgs" data-bs-interval="300">
+                        <img src="https://i.postimg.cc/x1TJLVc1/shop3.jpg w-75" class="d-block   " alt="..."
+                            height="407px">
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="container p-5 my-3">
+                <h1 class="center">Enjoy your Shopping Now</h1>
+                <p class="mt-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi vero adipisci dicta
+                    maiores, eius quisquam tempora architecto culpa natus voluptate aspernatur neque placeat voluptatum.
+                    Atque ab esse velit eaque nulla?</p>
+
+            </div>
+        </div>
+
+        <div  data-aos="fade-down" class="row my-5" id="list">
+
+
+            <div *ngFor="let i of allProduts" class="card col-lg-3  m-4 border rounded shadow " style="width: 20rem;" id="anim">
+                <a routerLink="view/{{i._id}}" style="text-decoration: none;">
+
+                    <img [src]="i.image" class="card-img-top mt-5  " style="height:300px ;">
+                </a>
+
+                <div class="card-body text-center">
+                    <h3 class="card-title text-dark">
+                        {{i.title.length>22?i.title.slice(0,22)+".....":i.title}}</h3>
+                    <p class="card-text  ">{{i.category}}</p>
+                    <h5 class="card-text">$ {{i.price}}</h5>
+
+
+                </div>
+                <div class=" text-center p-3  ">
+                    <button (click)="addToWishlist(i.id,i.title,i.description,i.price,i.category,i.image,i.rating)" class="btn" style="border: none;">
+                        <i class="fa-solid fa-heart" style="color: red;"></i>
+                    </button>
+                    <button  (click)="addToCart(i)" class="ms-3 btn" style="border: none;" >
+                        <i class="fa-solid fa-cart-shopping "></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

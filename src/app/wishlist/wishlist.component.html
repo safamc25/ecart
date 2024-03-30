@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div *ngIf="products.length<=0" class="container text-center">
+    <img class="mt-5 " src="https://i.postimg.cc/mDcd9XcB/wishh.jpg w-25 " alt="">
+    <h4 class="mt-5">Your Wishlist Is Empty!</h4>
+    <button class="m-5 p-2 bg-dark text-white">Add More Items</button>
+
+</div>
+
+
+<div class="container">
+    <div *ngIf="products.length>0"  class="row">
+        <div  data-aos="flip-left" *ngFor="let i of products" class="card  m-5 border-dark " style="max-width: 540px; " >
+            <div  class="row g-0 text-center ">
+                <div class="col-md-4">
+                    <img [src]="i.image" class="img-fluid rounded-start mt-3 " alt="..." width="80%">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">{{i.title}}</h4>
+                        <p class="card-text">{{i.category}}</p>
+                        <h5>$ {{i.price}}</h5>
+
+                       <div class="d-flex text-center ms-5 justify-content-between ">
+                        <button (click)="addToCart(i)" class="btn fs-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+        
+                        </button>
+                        <button (click)="removeItem(i._id)" class="btn fs-2">
+                            <i class="fa-solid fa-trash" style="color: red;"></i>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+
+               
+            </div>
+            
+        </div>
+    </div>
+</div>

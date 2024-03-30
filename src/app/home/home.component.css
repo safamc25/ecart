@@ -1,0 +1,16 @@
+h1{
+    color: rgb(97, 44, 6);
+}
+
+.btn{
+    background-color: white;
+    font-size: 25px;
+}
+
+#anim{
+    transition: .5s ease-out;
+}
+
+#anim:hover{
+    transform: scale(1.07);
+}

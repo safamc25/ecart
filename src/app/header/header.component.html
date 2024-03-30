@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light ">
+    <div class="container-fluid  ms-5 ">
+
+        <a class="navbar-brand " routerLink="">
+            <img src="https://i.postimg.cc/76KnMZXm/shop-removebg-preview.png " alt="" width="80px" >
+            <span class="text-danger">F</span>ashion
+            <span class="text-danger">F</span>utura
+
+        </a>
+       
+      
+            <form class=" d-flex text-center">
+                <input [(ngModel)]="sData" (keyup)="sendData($event)" class="form-control   " type="search" placeholder="Search" aria-label="Search" id="s1" name="search">
+                <button class="btn btn-outline-success"  type="submit">Search</button>
+            </form>
+            <div class="d-flex text-center ">
+            <a class="nav-link ms-5 fs-5" routerLink="/wishlist">
+                <i class="fa-solid fa-heart" style="color: #e00b0b;"></i>
+               
+            </a>
+            <a class="nav-link text-white fs-5 " routerLink="/cart">
+                <i class="fa-solid fa-cart-shopping "  style="color:black ;" >
+                    </i>
+                    <b class="cart-count rounded-pill bg-danger ms-1">{{cartCount}}</b>
+               
+            </a>
+            <a *ngIf="!login" class="nav-link  ms-5 me-5 text-white fs-5" routerLink="login">
+                <i class="fa-solid fa-user " style="color:black"></i>
+                Login
+            </a>
+            <a  *ngIf="login"  class="nav-link  ms-5 me-5 text-white fs-5" (click)="logout()">
+                <i class="fa-solid fa-user " style="color:black"></i>
+                logout
+            </a>
+        </div>
+
+
+    </div>
+</nav>

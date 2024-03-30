@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="container w-75 p-5 my-5">
+
+    <div class="card mb-3 shadow " style="max-width: 100%;">
+        <div class="row my-5 ">
+            <div  class="col-md-6">
+              
+                    <img [src]="singleProduct.image" alt="" class="img-fluid rounded-start">
+                
+            </div>
+            
+            <div class="col-md-6">
+
+
+                <h1 class="card-title">{{singleProduct.title}}</h1>
+                <h5><span class="p-1" [ngClass]="singleProduct.rating.rate >= 4 ? 'c1' : 'c2'">{{singleProduct.rating.rate}} 
+                    
+                        <i class="fa-solid fa-star "></i>
+                    </span>
+                      {{singleProduct.rating.count}} Rating
+                </h5>
+                <p class="my-4">Price:<span class="text-secondary fs-4">${{singleProduct.price}}</span></p>
+                <h5>Category:{{singleProduct.category}}</h5>
+                <p>{{singleProduct.description}}</p>
+        
+
+                <div class="d-flex justify-content-between m-4 pt-3 ">
+                    <button (click)="addToCart(singleProduct)" class="btn btn-outline-success p-2">Add to <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button (click)="addToWishlist( singleProduct.id, singleProduct.title, singleProduct.description,singleProduct.price,singleProduct.category,singleProduct.image,singleProduct.rating)" class=" btn btn-outline-danger p-2">Add to <i class="fa-solid fa-heart-circle-plus"></i>
+                    </button>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

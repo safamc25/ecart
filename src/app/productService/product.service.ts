@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProductService {
 
-  BaseUrl = 'http://localhost:8000'
+  BaseUrl = 'https://ecartserver-jpmd.onrender.com'
 
   searchString = new BehaviorSubject("")
   cartCount=new BehaviorSubject(0)
